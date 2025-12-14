@@ -1,15 +1,21 @@
 export function initSidebar() {
-  const burger = document.querySelector('[data-sidebar="burger"]');
+  const burgers = Array.from(document.querySelectorAll('[data-sidebar="burger"]'));
   const sidebar = document.querySelector('[data-sidebar="sidebar"]');
   const overlay = document.querySelector('[data-sidebar="overlay"]');
 
-  if (!burger || !sidebar || !overlay) return;
+  if (!burgers.length || !sidebar || !overlay) return;
 
   const openClass = 'open';
 
-  const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
   const isOpen = () => sidebar.classList.contains(openClass);
 
+  const lockScroll = () => {
+    document.documentElement.style.overflow = 'hidden';
+  };
+
+  const unlockScroll = () => {
+    document.documentElement.style.overflow = '';
+  };
 
   const open = () => {
     if (isOpen()) return;
@@ -29,10 +35,12 @@ export function initSidebar() {
     isOpen() ? close() : open();
   };
 
-  burger.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggle();
+  burgers.forEach((burger) => {
+    burger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle();
+    });
   });
 
   overlay.addEventListener('click', close);
@@ -40,16 +48,15 @@ export function initSidebar() {
   document.addEventListener('click', (e) => {
     if (!isOpen()) return;
     if (sidebar.contains(e.target)) return;
-    if (burger.contains(e.target)) return;
+    if (burgers.some((b) => b.contains(e.target))) return;
     close();
   });
 
   sidebar.addEventListener('click', (e) => {
-  const el = e.target.closest('[data-sidebar-close]');
-  if (!el) return;
-  close();
-});
-
+    const el = e.target.closest('[data-sidebar-close]');
+    if (!el) return;
+    close();
+  });
 
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
