@@ -9,14 +9,6 @@ export function initSidebar() {
 
   const isOpen = () => sidebar.classList.contains(openClass);
 
-  const lockScroll = () => {
-    document.documentElement.style.overflow = 'hidden';
-  };
-
-  const unlockScroll = () => {
-    document.documentElement.style.overflow = '';
-  };
-
   const open = () => {
     if (isOpen()) return;
     sidebar.classList.add(openClass);
