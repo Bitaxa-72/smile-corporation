@@ -11,7 +11,7 @@ export function initPortfolioSwiper() {
         loop: true,
         speed: 600,
         autoplay: {
-            delay: 500000,
+            delay: 5000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
@@ -36,7 +36,7 @@ export function initMasterSwiper() {
         loop: true,
         speed: 600,
         autoplay: {
-            delay: 500000,
+            delay: 5000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
@@ -62,7 +62,7 @@ export function initHeaderMainSwiper() {
         loop: true,
         speed: 600,
         autoplay: {
-            delay: 500000,
+            delay: 5000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
@@ -90,7 +90,7 @@ export function initReviewsSwiper() {
         loop: true,
         speed: 600,
         autoplay: {
-            delay: 500000,
+            delay: 5000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },

@@ -5,8 +5,11 @@ import { initMasterSwiper } from './modules/sliders';
 import { initReviewsSwiper } from './modules/sliders';
 import { initSidebar } from './modules/burger';
 
-initReviewsSwiper();        
-initPortfolioSwiper();
-initHeaderMainSwiper();
-initMasterSwiper();
-initSidebar();
+
+document.addEventListener('DOMContentLoaded', () => {
+  initReviewsSwiper();
+  initPortfolioSwiper();
+  initHeaderMainSwiper();
+  initMasterSwiper();
+  initSidebar();
+});
