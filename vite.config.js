@@ -3,6 +3,7 @@ import injectHTML from 'vite-plugin-html-inject';
 
 export default defineConfig({
     root: './src',
+    publicDir: '../public',
     base: '/smile-corporation/',
     server: {
         port: 3000,
